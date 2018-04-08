@@ -2,28 +2,36 @@
 
 {% block content %}
 
-<form action="signup" method = "POST">
+<form action="welcome" method = "POST">
     <label for="username">Username</label>
     <br>
-        <input name="username" {{ username }} type="text" maxlength="20" minlength = "3">
+        <input name="username" {{ username }} type="text">
+        {% if error %}
+        <p class='error'>{{ error }}</p>
+        {% endif %}
     <br>
     <label for="password">Password</label>
     <br>
-        <input name="password" {{ password }} type="password" maxlength="20" minlength = "3">
+        <input name="password" {{ password }} type="password">
+        {% if error %}
+        <p class='error'>{{ error }}</p>
+        {% endif %}
     <br>
     <label for="confirm">Confirm Password</label>
     <br>
-        <input name="confirm" {{ confirm }} type="password" maxlength="20" minlength = "3">
+        <input name="confirm" {{ confirm }} type="password">
+        {% if error %}
+        <p class='error'>{{ error }}</p>
+        {% endif %}
     <br>
     <label for="email">Email (optional)</label>
     <br>
-        <input name="email" {{ email }} type="text" maxlength="20" minlength = "3">
+        <input name="email" {{ email }} type="text">
+        {% if error %}
+        <p class='error'>{{ error }}</p>
+        {% endif %}
     <br>
     <input type="submit" value="Submit"/>
 </form>
-
-{% if error %}
-    <p class='error'>{{ error }}</p>
-{% endif %}
         
 {% endblock %}

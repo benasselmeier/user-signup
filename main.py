@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 app.config['DEBUG'] = True      # displays runtime errors in the browser, too
 
-@app.route("/signup", methods=['POST'])
+@app.route("/welcome", methods=['POST'])
 def signup():
 
     username = request.form['username']
@@ -14,11 +14,11 @@ def signup():
     email = request.form['email']
     error = ""
 
-    if (len(username) < 3) or (len(username) > 20):
+    if len(username) > 3 and len(username) <20:
+        return render_template('welcome.html', username=username)
+    else:
         error = "invalid username"
-        return redirect("/?error=" + error)
-
-    render_template('index.html')
+        return render_template('form-signup.html', error=error)
 
 @app.route("/")
 def index():
