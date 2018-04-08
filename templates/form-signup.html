@@ -2,32 +2,32 @@
 
 {% block content %}
 
-<form action="welcome" method = "POST">
+<form action="signup" method = "POST">
     <label for="username">Username</label>
     <br>
-        <input name="username" {{ username }} type="text">
-        {% if error %}
-        <p class='error'>{{ error }}</p>
+        <input name="username" value="{{ username }}" type="text">
+        {% if username_error %}
+        <p class='error'>{{ username_error }}</p>
         {% endif %}
     <br>
     <label for="password">Password</label>
     <br>
-        <input name="password" {{ password }} type="password">
-        {% if error %}
-        <p class='error'>{{ error }}</p>
+        <input name="password" value="{{ username }}" type="password">
+        {% if password_error %}
+        <p class='error'>{{ password_error }}</p>
         {% endif %}
     <br>
     <label for="confirm">Confirm Password</label>
     <br>
-        <input name="confirm" {{ confirm }} type="password">
-        {% if error %}
-        <p class='error'>{{ error }}</p>
+        <input name="confirm" value="{{ confirm }}" type="password">
+        {% if confirm_error %}
+        <p class='error'>{{ confirm_error }}</p>
         {% endif %}
     <br>
     <label for="email">Email (optional)</label>
     <br>
-        <input name="email" {{ email }} type="text">
-        {% if error %}
+        <input name="email" value="{{ email }}" type="text">
+        {% if email_error %}
         <p class='error'>{{ error }}</p>
         {% endif %}
     <br>
